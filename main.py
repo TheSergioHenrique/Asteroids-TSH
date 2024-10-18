@@ -4,6 +4,7 @@ from constants import *
 from player import Player
 from asteroid import Asteroid
 from asteroidfield import *
+from shot import Shot
 pygame.display.set_caption('Asteroids-TSH')
 
 
@@ -23,6 +24,10 @@ def main():
 
     AsteroidField.containers = updatable_group
     asteroid_field = AsteroidField()
+
+    shots= pygame.sprite.Group()
+    Asteroid.containers = (asteroids, updatable_group, drawable_group)
+    Shot.containers = (shots, updatable_group, drawable_group)
 
     #O player aparecer no meio da tela
     player = Player(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2)
